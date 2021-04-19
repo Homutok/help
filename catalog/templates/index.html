@@ -1,0 +1,19 @@
+
+{% extends "base_generic.html" %}
+{% block content %}
+  <h1>Локальный справочник</h1>
+  <p>Добро пожаловать в  <em>справочник</em></p>
+  <h2>Список данных</h2>
+  <p>Список:</p>
+  <ul>
+    <li><strong>Комментариев:</strong> {{ num_comment }}</li>
+    <li><strong>Ответов:</strong> {{ num_answers }}</li>
+    <li><strong>Вопросов:</strong> {{ num_questions }}</li>
+    <li><strong>Вопросы по категориям:</strong></li>
+    {% for questions_detail in categ %}
+    <li><strong>{{categ}}</strong> </li>
+    {% endfor %}
+    <li><strong>Пользователей:</strong> {{ num_users }}</li>
+  </ul>
+  {{guide}}
+{% endblock %}

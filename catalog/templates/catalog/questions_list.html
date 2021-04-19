@@ -1,0 +1,23 @@
+{% extends "base_generic.html" %}
+{% block content %}
+  <h1>Список вопросов</h1>
+  {% if object_list  %}
+    <div class="questionslist">
+    {% for questions in object_list  %}
+    <div class="questionsblock">
+      <h4><a href="{{ questions.get_absolute_url }}">{{ questions.questions_text }}</a></h4>
+      <div class="answerblock">
+        {% if questions.answer is None %}
+        Ответа нет(
+        {% else %}
+        {{questions.answer}}
+        {% endif %}
+      </div>
+
+    </div>
+    {% endfor %}
+    </div>
+  {% else %}
+    <p>Вопросов нет(</p>
+  {% endif %}
+{% endblock %}

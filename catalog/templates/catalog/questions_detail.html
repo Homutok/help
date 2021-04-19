@@ -1,0 +1,18 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+  <h3>Вопрос :</h3>
+  <h2>{{ object.questions_text }}</h2>
+  <hr>
+  <h3>Ответ :</h3>
+  {% if object.answer is None %}
+    <h2>Ответа нет ¯\_(ツ)_/¯</h2>
+  {% else %}
+    <h2>{{object.answer}}</h2>
+  {% endif %}
+  <hr>
+  <h3>Комментарии:</h3>
+  {% for comment in  comment_data %}
+  <h5>({{comment.user}})    {{comment}}</h5>
+  {% endfor %}
+{% endblock %}
